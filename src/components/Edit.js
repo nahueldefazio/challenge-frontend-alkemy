@@ -10,13 +10,12 @@ function Edit() {
     const {id} = useParams()
     const [status, setStatus] = useState("");
     const [editPost, setEditPost] = useState({
-        title: "HOLAAA",
+        title: "",
         body: "",
         userId: 1
     });
 
     function updatePost(values) {
-        console.log(values)
         axios.put(url + "/" + id, {
             title: values.editPost.title,
             body: values.editPost.body
@@ -28,6 +27,7 @@ function Edit() {
                     body: response.data.body,
                     userId: 1
                 })
+
                 setStatus("Creation is successful")
             })
     }
@@ -53,6 +53,7 @@ function Edit() {
             >
                 {
                     (props) => {
+                        console.log(props)
                         return (
                             <Form className={'m-auto w-50 center-form'}>
                                 <div className={'d-flex flex-column m-3 align-items-center'}>

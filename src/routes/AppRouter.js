@@ -8,6 +8,7 @@ import Login from "../Login/Login";
 import {ProviderLogin} from "../context/LoginContext";
 import Delete from "../components/Delete";
 import Edit_2 from "../components/Edit_2";
+import Edit from "../components/Edit";
 
 function AppRouter() {
     return (
@@ -19,7 +20,7 @@ function AppRouter() {
                     <Route exact path={"/posts/:id"} component={Details}/>
                     <Route exact path={"/new-post"} component={Creation}/>
                     <Route exact path={"/delete/:id"} component={Delete}/>
-                    <Route exact path={"/post/:id"} component={Edit_2}/>
+                    <Route exact path={"/post/:id"} component={Edit}/>
                     <Route path={'/login'} exact component={Login}/>
                     <Route path={"/"} component={Home}/>
                 </Switch>
