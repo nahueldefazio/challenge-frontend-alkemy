@@ -36,8 +36,8 @@ function Creation() {
 
     const ErrorSchema = Yup.object().shape({
         newPost:Yup.object().shape({
-            title: Yup.string().required("Enter a valid name.").min(3, "Name is too short").max(20, "Name is too long"),
-            body: Yup.string().required("Body is required").min(5, "Body is too short").max(150, "Body is too long")
+            title: Yup.string().required("Title is required.").min(3, "Title is too short").max(20, "Title is too long"),
+            body: Yup.string().required("Body is required.").min(5, "Body is too short").max(150, "Body is too long")
         })
 
     })
@@ -66,8 +66,8 @@ function Creation() {
                                     <label>Title: </label>
                                     <Field name={'newPost.title'} type={'text'} className={'w-100 form-control'}/>
                                     <small className={'error'}>{props.errors.newPost?.title}</small>
-                                    <label>Body </label>
-                                    <Field name={'newPost.body'} type={'text'} className={'w-100 form-control'}/>
+                                    <label>Body: </label>
+                                    <Field name={'newPost.body'} as={'textarea'} type={'text'} className={'w-100 form-control'}/>
                                     <small className={'error'}>{props.errors.newPost?.body}</small>
                                     <button className={'btn btn-outline-success w-50 my-3'} type={'submit'}
                                             disabled={!props.isValid}> Send
@@ -79,9 +79,12 @@ function Creation() {
                     }
                 }
             </Formik>
-            <h1>{status}</h1>
-            {newPost.title && <h1>Title: {newPost?.title} </h1>}
-            {newPost.body && <h1>Body: {newPost?.body}</h1>}
+            <div className={'container'}>
+                <h1 className={'text-center mb-5'}>{status}</h1>
+                {newPost.title && <h3><strong>Title:</strong> {newPost?.title} </h3>}
+                {newPost.body && <h3><strong>Body:</strong> {newPost?.body}</h3>}
+            </div>
+
 
         </div>
     );

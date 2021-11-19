@@ -7,7 +7,6 @@ import NavBar from "../components/shared/NavBar";
 import Login from "../Login/Login";
 import {ProviderLogin} from "../context/LoginContext";
 import Delete from "../components/Delete";
-import Edit_2 from "../components/Edit_2";
 import Edit from "../components/Edit";
 
 function AppRouter() {

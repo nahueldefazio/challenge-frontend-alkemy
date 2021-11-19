@@ -27,7 +27,7 @@ function FormLogIn({errors}) {
 
                 </div>
                 <small className={'m-1 error'}>{errors.password}</small>
-                <button type="submit" className={'m-3 btn btn-warning'}>Entrar</button>
+                <button type="submit" className={'m-3 btn btn-warning w-50 mx-auto'}>Entrar</button>
             </Form>
         </div>
     );

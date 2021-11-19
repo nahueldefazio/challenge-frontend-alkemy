@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
+import Loading from "./shared/Loading";
 
 function Details() {
 
@@ -17,7 +18,6 @@ function Details() {
             setDetails(r.data)
             setStatus("Loading is successful")
         }).catch(error => {
-            console.log(error)
             swal({
                 title: error,
                 text: "ID not found",
@@ -25,15 +25,14 @@ function Details() {
                 button: "Ok",
             });
         });
-    }, [id]);
+    }, [id, url]);
 
 
     if (status === "") {
-        return <h1>... Loading</h1>
+        return <Loading/>
     }else {
         return (
-            <div>
-
+            <div className={'container'}>
                 <h1  className={'fs-3'}><strong className={'fs-1'}>ID:</strong> {details.id}</h1>
                 <h1 className={'fs-3'}><strong className={'fs-1'}>userId:</strong> {details.userId}</h1>
                 <h1 className={'fs-3'}><strong className={'fs-1'}>Title:</strong> {details.title}</h1>

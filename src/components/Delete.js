@@ -3,8 +3,9 @@ import axios from "axios";
 import LoginContext from "../context/LoginContext";
 import swal from "sweetalert";
 import {useParams} from "react-router-dom";
+import Loading from "./shared/Loading";
 
-function Delete(props) {
+function Delete() {
 
     const {isLoggedIn} = useContext(LoginContext)
     const [status, setStatus] = useState("");
@@ -30,7 +31,7 @@ function Delete(props) {
         return (
             <>
                 {isLoggedIn()}
-                <h1>... Loading</h1>
+                <Loading/>
             </>
 
         )
@@ -39,7 +40,7 @@ function Delete(props) {
         return (
             <>
                 {isLoggedIn()}
-                <h1>{status}</h1>
+                <h1 className={'text-center'}>{status}</h1>
             </>
 
         );
